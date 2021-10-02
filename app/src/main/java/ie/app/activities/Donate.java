@@ -52,38 +52,23 @@ public class Donate extends Base {
         progressBar.setMax(10000);
         amountTotal.setText("$0");
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_donate, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case R.id.menuReport : startActivity (new Intent(this, Report.class));
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    public void donateButtonPressed (View view)
-    {
+
+    public void donateButtonPressed (View view) {
         String method = paymentMethod.getCheckedRadioButtonId() == R.id.PayPal ?
                 "PayPal" : "Direct";
         int donatedAmount = amountPicker.getValue();
-        if (donatedAmount == 0)
-        {
+
+        if (donatedAmount == 0) {
             String text = amountText.getText().toString();
             if (!text.equals(""))
                 donatedAmount = Integer.parseInt(text);
         }
-        if (donatedAmount > 0)
-        {
+
+        if (donatedAmount > 0) {
             newDonation(new Donation(donatedAmount, method));
             progressBar.setProgress(totalDonated);
             String totalDonatedStr = "$" + totalDonated;
             amountTotal.setText(totalDonatedStr);
         }
-    } }
+    }
+}

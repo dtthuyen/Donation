@@ -16,47 +16,30 @@ import java.util.List;
 
 import ie.app.models.Donation;
 
-public class Report extends Base
-{
+public class Report extends Base {
     ListView listView;
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
         listView = (ListView) findViewById(R.id.reportList);
         DonationAdapter adapter = new DonationAdapter(this, donations);
         listView.setAdapter(adapter);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_donate, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case R.id.menuDonate : startActivity (new Intent(this, Donate.class));
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     class DonationAdapter extends ArrayAdapter<Donation> {
         private Context context;
         public List<Donation> donations;
-        public DonationAdapter(Context context, List<Donation> donations)
-        {
+
+        public DonationAdapter(Context context, List<Donation> donations) {
             super(context, R.layout.row_donate, donations);
             this.context = context;
             this.donations = donations;
         }
+
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater)
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.row_donate, parent, false);
@@ -67,10 +50,11 @@ public class Report extends Base
             methodView.setText(donation.method);
             return view;
         }
+
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             return donations.size();
-        }}
+        }
+    }
 }
 
