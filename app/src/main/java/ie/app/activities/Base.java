@@ -1,7 +1,5 @@
 package ie.app.activities;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
