@@ -46,14 +46,14 @@ public class Base extends AppCompatActivity {
         if(donations.isEmpty()) report.setEnabled(false);
         else report.setEnabled(true);
 
-//        if(this instanceof Donate) {
-//            donate.setVisible(false);
-//            if(!donations.isEmpty())
-//                report.setVisible(true);
-//        } else {
-//            report.setVisible(false);
-//            donate.setVisible(true);
-//        }
+        if(this instanceof Donate) {
+            donate.setVisible(false);
+            if(!donations.isEmpty())
+                report.setVisible(true);
+        } else {
+            report.setVisible(false);
+            donate.setVisible(true);
+        }
         return true;
     }
 
