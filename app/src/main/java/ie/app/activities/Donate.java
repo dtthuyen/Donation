@@ -1,6 +1,5 @@
 package ie.app.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -75,6 +74,7 @@ public class Donate extends Base {
     public void reset(MenuItem item) {
         app.dbManager.reset();
         app.totalDonated = 0;
+        progressBar.setProgress(0);
         amountTotal.setText("$0");
         amountText.setText(null);
     }
