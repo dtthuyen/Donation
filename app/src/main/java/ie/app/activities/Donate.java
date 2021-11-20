@@ -1,6 +1,5 @@
 package ie.app.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,25 +55,21 @@ public class Donate extends Base {
         String method = paymentMethod.getCheckedRadioButtonId() == R.id.PayPal ?
                 "PayPal" : "Direct";
         int donatedAmount = amountPicker.getValue();
+        int amount_text = Integer.parseInt(amountText.getText().toString());
 
-        if (donatedAmount == 0) {
-            String text = amountText.getText().toString();
-            if (!text.equals(""))
-                donatedAmount = Integer.parseInt(text);
-        }
+        if(amount_text > 0) donatedAmount = amount_text;
 
-        if (donatedAmount > 0) {
-            app.newDonation(new Donation(donatedAmount, method));
-            progressBar.setProgress(app.totalDonated);
-            String totalDonatedStr = "$" + app.totalDonated;
-            amountTotal.setText(totalDonatedStr);
-        }
+        app.newDonation(new Donation(donatedAmount, method, 0));
+        progressBar.setProgress(app.totalDonated);
+        String totalDonatedStr = "$" + app.totalDonated;
+        amountTotal.setText(totalDonatedStr);
     }
 
     @Override
     public void reset(MenuItem item) {
         app.dbManager.reset();
         app.totalDonated = 0;
+        progressBar.setProgress(0);
         amountTotal.setText("$0");
         amountText.setText(null);
     }
