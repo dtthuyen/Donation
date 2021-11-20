@@ -36,12 +36,12 @@
 
     <NumberPicker
         android:id="@+id/amountPicker"
-        android:layout_width="85dp"
-        android:layout_height="222dp"
+        android:layout_width="80dp"
+        android:layout_height="199dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="150dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="24dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -53,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="150dp" />
+        android:layout_marginBottom="180dp" />
 
     <RadioGroup
         android:id="@+id/paymentMethod"
@@ -89,7 +89,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="50dp"
         android:onClick="donateButtonPressed"
         android:text="@string/donateButton"
         android:textSize="18sp" />
@@ -101,7 +101,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginBottom="135dp"
         android:text="@string/amount"
         android:textSize="18sp" />
 
@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="60dp"
         android:layout_toEndOf="@+id/donateButton"
         android:text="@string/total"
         android:textSize="18sp" />
@@ -122,7 +122,7 @@
         android:layout_height="62dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="115dp"
         android:layout_toEndOf="@+id/amount"
         android:ems="10"
         android:inputType="number"
@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="60dp"
         android:layout_toEndOf="@+id/textView4"
         android:text="@string/totalSoFar"
         android:textSize="18sp" />
