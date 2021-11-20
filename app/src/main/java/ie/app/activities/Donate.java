@@ -55,19 +55,14 @@ public class Donate extends Base {
         String method = paymentMethod.getCheckedRadioButtonId() == R.id.PayPal ?
                 "PayPal" : "Direct";
         int donatedAmount = amountPicker.getValue();
+        int amount_text = Integer.parseInt(amountText.getText().toString());
 
-        if (donatedAmount == 0) {
-            String text = amountText.getText().toString();
-            if (!text.equals(""))
-                donatedAmount = Integer.parseInt(text);
-        }
+        if(amount_text > 0) donatedAmount = amount_text;
 
-        if (donatedAmount > 0) {
-            app.newDonation(new Donation(donatedAmount, method));
-            progressBar.setProgress(app.totalDonated);
-            String totalDonatedStr = "$" + app.totalDonated;
-            amountTotal.setText(totalDonatedStr);
-        }
+        app.newDonation(new Donation(donatedAmount, method, 0));
+        progressBar.setProgress(app.totalDonated);
+        String totalDonatedStr = "$" + app.totalDonated;
+        amountTotal.setText(totalDonatedStr);
     }
 
     @Override
