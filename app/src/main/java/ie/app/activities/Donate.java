@@ -18,7 +18,6 @@ import com.google.android.material.snackbar.Snackbar;
 import ie.app.models.Donation;
 
 public class Donate extends Base {
-    private Button donateButton;
     private RadioGroup paymentMethod;
     private ProgressBar progressBar;
     private NumberPicker amountPicker;
@@ -39,7 +38,6 @@ public class Donate extends Base {
                         .setAction("Action", null).show();
             }
         });
-        donateButton = (Button) findViewById(R.id.donateButton);
         paymentMethod = (RadioGroup) findViewById(R.id.paymentMethod);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         amountPicker = (NumberPicker) findViewById(R.id.amountPicker);
@@ -55,11 +53,11 @@ public class Donate extends Base {
         String method = paymentMethod.getCheckedRadioButtonId() == R.id.PayPal ?
                 "PayPal" : "Direct";
         int donatedAmount = amountPicker.getValue();
-        int amount_text = Integer.parseInt(amountText.getText().toString());
+        String amount_text = amountText.getText().toString();
 
-        if(amount_text > 0) donatedAmount = amount_text;
+        if(amount_text.length() > 0) donatedAmount = Integer.parseInt(amount_text);
 
-        app.newDonation(new Donation(donatedAmount, method, 0));
+        app.newDonation(new Donation(donatedAmount, method));
         progressBar.setProgress(app.totalDonated);
         String totalDonatedStr = "$" + app.totalDonated;
         amountTotal.setText(totalDonatedStr);
